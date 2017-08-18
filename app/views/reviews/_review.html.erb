@@ -1,1 +1,4 @@
-<p><%= review.content %></p>
+<p data-review-id="<%= review.id %>">
+  <%= review.content %>
+  <%= link_to "DESTROY", review_path(review), remote: true, method: :delete %>
+</p>

@@ -1,0 +1,2 @@
+$('[data-review-id="<%= @review.id %>"]').slideUp();
+$("#reviews_count").text('<%= pluralize(@review.restaurant.reviews.persisted.size, "review") %>')

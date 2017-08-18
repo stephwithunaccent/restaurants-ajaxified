@@ -1,0 +1,12 @@
+<% if @review.errors.any? %>
+  $("#review_form").html("<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>");
+<% else %>
+  $("#review_form").html("<%= j render 'reviews/form', restaurant: @restaurant, review: Review.new %>");
+  // add review to review list
+  var newReview = $("<%= j render 'reviews/review', review: @review %>");
+  newReview.hide();
+  $("#reviews").append(newReview);
+  newReview.slideDown();
+  // update reviews count
+  $("#reviews_count").text('<%= pluralize(@restaurant.reviews.persisted.size, "review") %>')
+<% end %>
